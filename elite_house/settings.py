@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     
     #! apps
     'apps.settings',
+    'apps.team',
+    'apps.buildings',
 ]
 
 MIDDLEWARE = [

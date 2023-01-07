@@ -24,3 +24,21 @@ class Settings(models.Model):
     class Meta:
         verbose_name = 'Настройка'
         verbose_name_plural = 'Настройки'
+
+class Slider(models.Model):
+    image = models.ImageField(
+        upload_to='slider_images/'
+    )
+    title = models.CharField(
+        max_length= 50
+    )
+    litle_text = models.CharField(
+        max_length=100
+    )
+    
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = 'Слайд'
+        verbose_name_plural = 'Слайдер'

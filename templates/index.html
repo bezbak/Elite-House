@@ -15,20 +15,18 @@
                 <div class="top-bar-socials">
                     <div class="inner">
                         <span class="icons">
-                            <a href="#" title="Twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a>
-                            <a href="#" title="Facebook"><span class="fa fa-facebook" aria-hidden="true"></span></a>
-                            <a href="#" title="Google Plus"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
-                            <a href="#" title="Pinterest"><span class="fa fa-pinterest" aria-hidden="true"></span></a>
-                            <a href="#" title="Dribbble"><span class="fa fa-dribbble" aria-hidden="true"></span></a>
+                            <a href="{{setting.twitter}}" title="Twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a>
+                            <a href="{{setting.facebook}}" title="Facebook"><span class="fa fa-facebook" aria-hidden="true"></span></a>
                         </span>
                     </div>
                 </div><!-- /.top-bar-socials -->
 
                 <div class="top-bar-content">
                     <span id="top-bar-text">
-                        <i class="fa fa-phone-square"></i>+1 718-999-3939
-                        <i class="fa fa-envelope"></i>contact@construction.com
-                        <i class="fa fa-clock-o"></i>Mon-Fri: 7:00 - 17:00
+                        <i class="fa fa-phone-square"></i>
+                        {{setting.phone}}
+                        <i class="fa fa-envelope"></i>{{setting.email}}
+                        <i class="fa fa-clock-o"></i>{{setting.graphic}}
                     </span><!-- /#top-bar-text -->
                 </div><!-- /.top-bar-content -->
             </div>
@@ -42,7 +40,7 @@
                 <div id="site-logo" class="clearfix">
                     <div id="site-logo-inner">
                         <a href="home-slider-full-screen.html" title="Construction" rel="home" class="main-logo">
-                            <img src="{% static 'assets/img/logo-light.png'%}" alt="Construction" data-retina="{% static 'assets/img/logo-light@2x.png'%}" data-width="200" data-height="30">
+                            <img style="height:50px; width:120px;" src="{{setting.logo.url}}" alt="Construction" data-retina="{{setting.logo.url}}" data-width="200" data-height="30">
                         </a>
                     </div>
                 </div><!-- /#site-logo -->
@@ -181,10 +179,11 @@
 <div class="rev_slider_wrapper fullwidthbanner-container">
     <div id="rev-slider1" class="rev_slider fullwidthabanner">
         <ul>
+            {% for slide in slider %}
             <!-- Slide -->
             <li data-transition="fade" data-slotamount="default" data-easein="Power3.easeInOut" data-easeout="Power3.easeInOut" data-masterspeed="1500" data-thumb="{% static 'assets/img/slider/1.jpg'%}" data-rotate="0" data-saveperformance="off" data-title="BEST COMPANY">
                 <!-- Main Image -->
-                <img src="{% static 'assets/img/slider/1.jpg'%}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-no-retina>
+                <img src="{{slide.image.url}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-no-retina>
                 <!-- Layers -->
                 <div class="tp-caption tp-resizeme text-white font-family-extend letter-spacing-7px"
                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
@@ -204,7 +203,7 @@
                     data-splitout="none"
                     data-responsive_offset="on"
                     data-lasttriggerstate="reset">
-                    Welcome to Construction
+                    {{slide.litle_text}}
                 </div>
                 <div class="tp-caption tp-resizeme text-white font-family-heading letter-spacing-1px font-weight-700"
                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
@@ -223,7 +222,7 @@
                     data-splitin="none"
                     data-splitout="none"
                     data-responsive_offset="on">
-                    THE <span class="text-accent-color">BEST</span> COMPANY
+                    {{slide.title}}
                 </div>
                 <div class="tp-caption"
                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
@@ -242,95 +241,11 @@
                     data-splitout="none"
                     data-actions='[{"event":"click","action":"scrollbelow","offset":"20px"}]'
                     data-responsive="on">
-                    <a class="wprt-button big rounded-3px">OUR PORTFOLIO</a>
+                    <a class="wprt-button big rounded-3px">Подробнее</a>
                 </div>
             </li>
             <!-- End Slide -->
-
-            <!-- Slide -->
-            <li data-transition="boxfade" data-slotamount="7" data-easein="Expo.easeOut" data-easeout="Expo.easeOut" data-masterspeed="2000" data-thumb="{% static 'assets/img/slider/2.jpg'%}" data-rotate="0" data-saveperformance="off" data-title="SINCE 1981">
-                <!-- Main Image -->
-                <img src="{% static 'assets/img/slider/2.jpg'%}" alt="" data-bgposition="center center" data-no-retina>
-                <!-- Layers -->
-                <div class="tp-caption tp-resizeme text-white font-family-heading letter-spacing-1px font-weight-700"
-                    data-x="['left','left','left','left']" data-hoffset="['50','30','30','30']"
-                    data-y="['middle','middle','middle','middle']" data-voffset="['-75','-70','-70','-50']"
-                    data-fontsize="['58','58','58','35']"
-                    data-lineheight="['66','65','56','42']"
-                    data-width="none"
-                    data-height="none"
-                    data-whitespace="nowrap"
-                    data-transform_idle="o:1;"
-                    data-transform_in="z:0;rX:0deg;rY:0;rZ:0;sX:1.5;sY:1.5;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;"
-                    data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                    data-mask_in="x:0px;y:0px;"
-                    data-mask_out="x:inherit;y:inherit;"
-                    data-start="1500"
-                    data-splitin="none"
-                    data-splitout="none"
-                    data-responsive_offset="on">
-                    CONSTRUCTION
-                </div>
-                <div class="tp-caption tp-resizeme text-white font-family-heading letter-spacing-1px font-weight-700"
-                    data-x="['left','left','left','left']" data-hoffset="['50','30','30','30']"
-                    data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
-                    data-fontsize="['58','58','58','35']"
-                    data-lineheight="['66','65','56','42']"
-                    data-width="none"
-                    data-height="none"
-                    data-whitespace="nowrap"
-                    data-transform_idle="o:1;"
-                    data-transform_in="z:0;rX:0deg;rY:0;rZ:0;sX:1.5;sY:1.5;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;"
-                    data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                    data-mask_in="x:0px;y:0px;"
-                    data-mask_out="x:inherit;y:inherit;"
-                    data-start="1500"
-                    data-splitin="none"
-                    data-splitout="none"
-                    data-responsive_offset="on">
-                    MANAGERS <span class="text-accent-color">SINCE 1981</span>
-                </div>
-                <div class="tp-caption tp-resizeme text-white font-family-extend letter-spacing-4px"
-                    data-x="['left','left','left','left']" data-hoffset="['55','30','30','30']"
-                    data-y="['middle','middle','middle','middle']" data-voffset="['68','100','100','40']"
-                    data-fontsize="['28','26','24','15']"
-                    data-lineheight="['40','40','40','28']"
-                    data-width="none"
-                    data-height="none"
-                    data-whitespace="nowrap"
-                    data-transform_idle="o:1;"
-                    data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;"
-                    data-transform_out="auto:auto;s:1000;e:Power3.easeInOut;"
-                    data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                    data-mask_out="x:0;y:0;s:inherit;e:inherit;"
-                    data-start="1000"
-                    data-splitin="none"
-                    data-splitout="none"
-                    data-responsive_offset="on"
-                    data-lasttriggerstate="reset">
-                    Fast and Reliable Service for Your Project
-                </div>
-                <div class="tp-caption"
-                    data-x="['left','left','left','left']" data-hoffset="['55','30','30','30']"
-                    data-y="['middle','middle','middle','middle']" data-voffset="['160','150','140','125']"
-                    data-width="none"
-                    data-height="none"
-                    data-whitespace="nowrap"
-                    data-transform_idle="o:1;"
-                    data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;"
-                    data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;"
-                    data-transform_in="y:50px;opacity:0;s:1000;e:Power4.easeInOut;"
-                    data-transform_out="y:[175%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                    data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                    data-start="1250"
-                    data-splitin="none"
-                    data-splitout="none"
-                    data-actions='[{"event":"click","action":"scrollbelow","offset":"20px"}]'
-                    data-responsive="on">
-                    <a class="wprt-button big rounded-3px">CONTACT US</a>
-                </div>
-            </li>
-            <!-- End Slide -->
+            {% endfor %}
         </ul>
         <div class="tp-bannertimer tp-bottom"></div>
     </div>
